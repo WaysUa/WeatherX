@@ -17,7 +17,7 @@ interface DependencyContainer {
 
     class Base(
         private val core: Core,
-        private val dependencyContainer: DependencyContainer = Error(),
+        private val dependencyContainer: DependencyContainer = Error()
     ) : DependencyContainer {
 
         override fun <T : ViewModel> module(clazz: Class<T>): Module<*> = when (clazz) {
