@@ -3,6 +3,8 @@ package com.main.weatherx.main.sl
 import androidx.lifecycle.ViewModel
 import com.main.weatherx.core.sl.Core
 import com.main.weatherx.core.sl.Module
+import com.main.weatherx.features.weather.main.presentation.viewmodel.MainWeatherViewModel
+import com.main.weatherx.features.weather.main.sl.MainWeatherModule
 import com.main.weatherx.main.presentation.viewmodel.MainViewModel
 
 interface DependencyContainer {
@@ -21,7 +23,8 @@ interface DependencyContainer {
     ) : DependencyContainer {
 
         override fun <T : ViewModel> module(clazz: Class<T>): Module<*> = when (clazz) {
-            MainViewModel::class.java -> MainModule()
+            MainViewModel::class.java -> MainModule(core)
+            MainWeatherViewModel.Base::class.java -> MainWeatherModule()
             else -> dependencyContainer.module(clazz)
         }
     }

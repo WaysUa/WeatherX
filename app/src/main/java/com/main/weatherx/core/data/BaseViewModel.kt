@@ -8,12 +8,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 abstract class BaseViewModel(
-    private val dispatchersList: DispatchersList,
+    private val dispatchersList: DispatchersList
 ) : ViewModel(), Handle {
 
     override fun <T : Any> handle(
         block: suspend () -> T,
-        ui: (T) -> Unit,
+        ui: (T) -> Unit
     ) = viewModelScope.launch(dispatchersList.io()) {
         val result = block.invoke()
         withContext(dispatchersList.ui()) {
@@ -25,6 +25,6 @@ abstract class BaseViewModel(
 interface Handle {
     fun <T : Any> handle(
         block: suspend () -> T,
-        ui: (T) -> Unit,
+        ui: (T) -> Unit
     ): Job
 }

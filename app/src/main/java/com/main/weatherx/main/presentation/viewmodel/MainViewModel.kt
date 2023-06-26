@@ -7,6 +7,7 @@ import com.main.weatherx.main.presentation.communication.Communication
 import com.main.weatherx.main.presentation.core.Init
 import com.main.weatherx.main.presentation.navigation.NavigationCommunication
 import com.main.weatherx.main.presentation.navigation.NavigationStrategy
+import com.main.weatherx.main.presentation.navigation.Screen
 
 class MainViewModel(
     private val navigationCommunication: NavigationCommunication.Mutable
@@ -14,7 +15,7 @@ class MainViewModel(
 
     override fun init(isFirstRun: Boolean) {
         if (isFirstRun) {
-//            navigationCommunication.map(NavigationStrategy.Replace(Screen))
+            navigationCommunication.map(NavigationStrategy.Replace(Screen.MainWeather))
         }
     }
 
