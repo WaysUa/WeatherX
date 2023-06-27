@@ -1,8 +1,8 @@
 package com.main.weatherx.core.sl
 
+import com.main.weatherx.datasource.sl.CloudModule
 import com.main.weatherx.main.presentation.core.DispatchersList
 import com.main.weatherx.main.presentation.navigation.NavigationCommunication
-import com.main.weatherx.main.sl.CloudModule
 
 interface Core : CloudModule, ProvideNavigation {
 

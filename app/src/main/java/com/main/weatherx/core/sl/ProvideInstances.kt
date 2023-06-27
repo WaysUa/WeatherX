@@ -1,6 +1,6 @@
 package com.main.weatherx.core.sl
 
-import com.main.weatherx.main.sl.CloudModule
+import com.main.weatherx.datasource.sl.CloudModule
 
 interface ProvideInstances {
 

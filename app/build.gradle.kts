@@ -58,6 +58,7 @@ dependencies {
     implementation(Dependencies.Android.constraintLayout)
     implementation(Dependencies.Android.material)
     implementation(Dependencies.Android.fragment)
+    implementation("com.google.android.gms:play-services-location:21.0.1")
     // Unit Testing
     testImplementation(Dependencies.UnitTesting.JUnit.core)
     testImplementation(Dependencies.UnitTesting.KotlinX.coroutines)
@@ -70,6 +71,8 @@ dependencies {
     // Navigation
     implementation(Dependencies.Navigation.navigationFragment)
     implementation(Dependencies.Navigation.navigationUi)
+    // Permissions
+    implementation(Dependencies.PermissionX.core)
     // Splash Screen
     implementation(Dependencies.SplashScreen.main)
 }

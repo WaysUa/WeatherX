@@ -27,6 +27,10 @@ object Dependencies {
         const val runtime = "androidx.room:room-runtime:$version"
     }
 
+    object PermissionX {
+        const val core = "com.guolindev.permissionx:permissionx:1.7.1"
+    }
+
     object UnitTesting {
         object JUnit {
             const val core = "junit:junit:4.13.2"
