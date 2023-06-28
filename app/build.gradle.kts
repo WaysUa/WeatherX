@@ -73,6 +73,9 @@ dependencies {
     implementation(Dependencies.Navigation.navigationUi)
     // Permissions
     implementation(Dependencies.PermissionX.core)
+    // Retrofit
+    implementation(Dependencies.Retrofit.core)
+    implementation(Dependencies.Retrofit.converter)
     // Splash Screen
     implementation(Dependencies.SplashScreen.main)
 }

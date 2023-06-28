@@ -31,6 +31,11 @@ object Dependencies {
         const val core = "com.guolindev.permissionx:permissionx:1.7.1"
     }
 
+    object Retrofit {
+        const val core = "com.squareup.retrofit2:retrofit:2.9.0"
+        const val converter = "com.squareup.retrofit2:converter-scalars:2.1.0"
+    }
+
     object UnitTesting {
         object JUnit {
             const val core = "junit:junit:4.13.2"

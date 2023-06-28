@@ -1,10 +1,10 @@
 package com.main.weatherx.core.sl
 
-import com.main.weatherx.datasource.sl.CloudModule
+import com.main.weatherx.datasource.sl.GeoCloudModule
 
 interface ProvideInstances {
 
-    fun provideCloudModule(): CloudModule
+    fun provideCloudModule(): GeoCloudModule
 
 //    class Release(private val context: Context) : ProvideInstances {
 //        override fun provideCacheModule() = CloudModule.Base(context)
