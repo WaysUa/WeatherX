@@ -76,6 +76,8 @@ dependencies {
     // Retrofit
     implementation(Dependencies.Retrofit.core)
     implementation(Dependencies.Retrofit.converter)
+    // OkHttp
+    implementation(Dependencies.OkHttp.core)
     // Splash Screen
     implementation(Dependencies.SplashScreen.main)
 }

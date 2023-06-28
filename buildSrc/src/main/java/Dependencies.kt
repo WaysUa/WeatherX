@@ -36,6 +36,10 @@ object Dependencies {
         const val converter = "com.squareup.retrofit2:converter-scalars:2.1.0"
     }
 
+    object OkHttp {
+        const val core = "com.squareup.okhttp3:logging-interceptor:4.10.0"
+    }
+
     object UnitTesting {
         object JUnit {
             const val core = "junit:junit:4.13.2"

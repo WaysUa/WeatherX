@@ -5,6 +5,7 @@
       <list>
         <option value="trailing-comma-on-declaration-site" />
         <option value="trailing-comma-on-call-site" />
+        <option value="final-newline" />
       </list>
     </disabledRules>
   </component>

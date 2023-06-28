@@ -32,7 +32,7 @@ class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
     private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             val latestLocation = locationResult.lastLocation
-            Log.d("MyLog", latestLocation.toString())
+            if (latestLocation != null) viewModel.mapLocation(latestLocation)
         }
     }
 
@@ -52,6 +52,26 @@ class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
                     Looper.getMainLooper()
                 )
             }
+        }
+
+        viewModel.observeGeoData(this) {
+            // todo remove log
+            Log.d("MyLog", "Error: $it")
+        }
+
+        viewModel.observeError(this) {
+            // todo remove log
+            Log.d("MyLog", "Error: $it")
+        }
+
+        viewModel.observeProgress(this) {
+            // todo remove log
+            Log.d("MyLog", "Progress: $it")
+        }
+
+        viewModel.observeLocation(this) {
+            // todo remove log
+            Log.d("MyLog", "Location: $it")
         }
     }
 }

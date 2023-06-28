@@ -24,7 +24,7 @@ interface DependencyContainer {
 
         override fun <T : ViewModel> module(clazz: Class<T>): Module<*> = when (clazz) {
             MainViewModel::class.java -> MainModule(core)
-            MainGeoViewModel.Base::class.java -> MainWeatherModule()
+            MainGeoViewModel.Base::class.java -> MainWeatherModule(core)
             else -> dependencyContainer.module(clazz)
         }
     }
