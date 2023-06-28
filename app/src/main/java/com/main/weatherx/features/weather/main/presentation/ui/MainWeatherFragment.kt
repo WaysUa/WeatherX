@@ -14,12 +14,12 @@ import com.google.android.gms.location.Priority
 import com.main.notelink.core.data.BaseFragment
 import com.main.weatherx.core.data.Permission
 import com.main.weatherx.databinding.FragmentMainWeatherBinding
-import com.main.weatherx.features.weather.main.presentation.viewmodel.MainWeatherViewModel
+import com.main.weatherx.features.weather.main.presentation.viewmodel.MainGeoViewModel
 import com.permissionx.guolindev.PermissionX
 
-class MainWeatherFragment : BaseFragment<MainWeatherViewModel.Base>() {
+class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
 
-    override val viewModelClass = MainWeatherViewModel.Base::class.java
+    override val viewModelClass = MainGeoViewModel.Base::class.java
     override val binding by lazy { FragmentMainWeatherBinding.inflate(layoutInflater) }
 
     private val permissionManager = PermissionX.init(this)

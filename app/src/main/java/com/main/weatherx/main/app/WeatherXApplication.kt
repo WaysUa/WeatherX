@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.main.weatherx.core.sl.Core
+import com.main.weatherx.core.sl.ProvideInstances
 import com.main.weatherx.core.sl.ProvideViewModel
 import com.main.weatherx.core.sl.ViewModelsFactory
 import com.main.weatherx.main.sl.DependencyContainer
@@ -15,8 +16,8 @@ class WeatherXApplication : Application(), ProvideViewModel {
 
     override fun onCreate() {
         super.onCreate()
-//        val provideInstances = ProvideInstances.Release(this)
-        dependencyContainer = DependencyContainer.Base(Core.Base())
+        val provideInstances = ProvideInstances.Release(this)
+        dependencyContainer = DependencyContainer.Base(Core.Base(provideInstances))
         viewModelsFactory = ViewModelsFactory(dependencyContainer)
     }
 

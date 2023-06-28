@@ -8,7 +8,9 @@ interface Core : GeoCloudModule, ProvideNavigation {
 
     fun provideDispatchers(): DispatchersList
 
-    class Base : Core {
+    class Base(
+        private val provideInstances: ProvideInstances
+    ) : Core {
 
         private val navigationCommunication = NavigationCommunication.Base()
 
@@ -16,7 +18,13 @@ interface Core : GeoCloudModule, ProvideNavigation {
             DispatchersList.Base()
         }
 
+        private val cloudModule by lazy {
+            provideInstances.provideCloudModule()
+        }
+
         override fun provideDispatchers() = dispatchersList
+        override fun <T> service(clazz: Class<T>) = cloudModule.service(clazz)
+
         override fun provideNavigation() = navigationCommunication
     }
 }
