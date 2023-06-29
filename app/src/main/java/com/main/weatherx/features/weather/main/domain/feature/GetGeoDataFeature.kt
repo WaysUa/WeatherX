@@ -1,6 +1,10 @@
-package com.main.weatherx.some
+package com.main.weatherx.features.weather.main.domain.feature
 
+import com.main.weatherx.features.weather.main.data.GeoResult
+import com.main.weatherx.features.weather.main.data.entities.Coordinates
+import com.main.weatherx.features.weather.main.domain.usecase.GetGeoDataUseCase
 import com.main.weatherx.features.weather.main.presentation.communication.MainWeatherCommunication
+import com.main.weatherx.main.presentation.core.UiFeature
 
 interface GetGeoDataFeature {
 

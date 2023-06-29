@@ -1,18 +1,15 @@
 package com.main.weatherx.features.weather.main.presentation.communication
 
-import android.location.Location
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import com.main.weatherx.features.weather.main.data.entities.Coordinates
 import com.main.weatherx.main.presentation.communication.Communication
-import com.main.weatherx.some.Coordinates
 import com.main.weatherx.some.entities.GeoData
-import java.lang.IllegalStateException
 
 interface MainWeatherCommunication :
     ObserveMainWeatherStates,
     FetchCoordinates,
-    ValueCoordinates,
-    MapMainWeatherStates {
+    ValueCoordinates {
 
     fun mapGeoData(geoData: GeoData)
 
@@ -21,16 +18,11 @@ interface MainWeatherCommunication :
     fun showProgress(show: Int)
 
     class Base(
-        private val locationCommunication: LocationCommunication,
         private val progressCommunication: ProgressCommunication,
         private val coordinatesCommunication: CoordinatesCommunication,
         private val geoDataCommunication: GeoDataCommunication,
         private val errorCommunication: ErrorCommunication
     ) : MainWeatherCommunication {
-
-        override fun mapLocation(location: Location) {
-            locationCommunication.map(location)
-        }
 
         override fun mapGeoData(geoData: GeoData) {
             geoDataCommunication.map(geoData)
@@ -42,10 +34,6 @@ interface MainWeatherCommunication :
 
         override fun showProgress(show: Int) {
             progressCommunication.map(show)
-        }
-
-        override fun observeLocation(owner: LifecycleOwner, observer: Observer<Location>) {
-            locationCommunication.observe(owner, observer)
         }
 
         override fun observeProgress(owner: LifecycleOwner, observer: Observer<Int>) {
@@ -72,11 +60,6 @@ interface MainWeatherCommunication :
     }
 }
 
-interface MapMainWeatherStates {
-
-    fun mapLocation(location: Location)
-}
-
 interface FetchCoordinates {
     fun fetchCoordinates(coordinates: Coordinates)
 }
@@ -87,17 +70,11 @@ interface ValueCoordinates {
 
 interface ObserveMainWeatherStates {
 
-    fun observeLocation(owner: LifecycleOwner, observer: Observer<Location>)
-
     fun observeProgress(owner: LifecycleOwner, observer: Observer<Int>)
 
     fun observeGeoData(owner: LifecycleOwner, observer: Observer<GeoData>)
 
     fun observeError(owner: LifecycleOwner, observer: Observer<String>)
-}
-
-interface LocationCommunication : Communication.Mutable<Location> {
-    class Base : Communication.Ui<Location>(), LocationCommunication
 }
 
 interface GeoDataCommunication : Communication.Mutable<GeoData> {

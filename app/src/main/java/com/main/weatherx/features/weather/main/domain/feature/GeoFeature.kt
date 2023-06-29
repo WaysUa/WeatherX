@@ -1,8 +1,10 @@
-package com.main.weatherx.some
+package com.main.weatherx.features.weather.main.domain.feature
 
 import android.view.View
 import com.main.weatherx.core.data.Handle
+import com.main.weatherx.features.weather.main.data.GeoResult
 import com.main.weatherx.features.weather.main.presentation.communication.MainWeatherCommunication
+import com.main.weatherx.main.presentation.core.UiFeature
 import kotlinx.coroutines.Job
 
 abstract class GeoFeature(

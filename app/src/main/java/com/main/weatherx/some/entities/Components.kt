@@ -1,19 +1,19 @@
 package com.main.weatherx.some.entities
 
-// data class Components(
-//    val ISO_3166-1_alpha-2: String,
-//    val ISO_3166-1_alpha-3: String,
-//    val ISO_3166-2: List<String>,
-//    val _category: String,
-//    val _type: String,
-//    val continent: String,
-//    val country: String,
-//    val country_code: String,
-//    val district: String,
-//    val municipality: String,
-//    val postcode: String,
-//    val road: String,
-//    val road_type: String,
-//    val state: String,
-//    val village: String
-// )
+import com.google.gson.annotations.SerializedName
+
+data class Components(
+    @SerializedName("ISO_3166-1_alpha-2") val ISO31661Alpha2: String,
+    @SerializedName("ISO_3166-1_alpha-3") val ISO31661Alpha3: String,
+    @SerializedName("ISO_3166-2") val ISO31662: List<String>,
+    @SerializedName("_category") val category: String,
+    @SerializedName("_type") val type: String,
+    val continent: String,
+    val country: String,
+    @SerializedName("country_code") val countryCode: String,
+    val district: String,
+    val municipality: String,
+    val postcode: String,
+    val state: String,
+    val village: String
+)

@@ -8,6 +8,10 @@ object Dependencies {
         const val fragment = "androidx.fragment:fragment-ktx:1.5.7"
     }
 
+    object Google {
+        const val playServicesLocation = "com.google.android.gms:play-services-location:21.0.1"
+    }
+
     object Navigation {
         private const val version = "2.5.3"
 
@@ -33,7 +37,9 @@ object Dependencies {
 
     object Retrofit {
         const val core = "com.squareup.retrofit2:retrofit:2.9.0"
-        const val converter = "com.squareup.retrofit2:converter-scalars:2.1.0"
+        const val converter = "com.squareup.retrofit:converter-gson:2.9.0"
+        const val coreAdapter = "com.squareup.retrofit:adapter-rxjava:2.0.0"
+        const val rxJavaAdapter = "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0"
     }
 
     object OkHttp {

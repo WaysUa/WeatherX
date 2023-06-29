@@ -14,6 +14,7 @@ import com.google.android.gms.location.Priority
 import com.main.notelink.core.data.BaseFragment
 import com.main.weatherx.core.data.Permission
 import com.main.weatherx.databinding.FragmentMainWeatherBinding
+import com.main.weatherx.features.weather.main.data.entities.Coordinates
 import com.main.weatherx.features.weather.main.presentation.viewmodel.MainGeoViewModel
 import com.permissionx.guolindev.PermissionX
 
@@ -32,7 +33,14 @@ class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
     private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             val latestLocation = locationResult.lastLocation
-            if (latestLocation != null) viewModel.mapLocation(latestLocation)
+            if (latestLocation != null) {
+                viewModel.fetchCoordinates(
+                    Coordinates(
+                        lat = latestLocation.latitude,
+                        lon = latestLocation.longitude
+                    )
+                )
+            }
         }
     }
 
@@ -56,7 +64,7 @@ class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
 
         viewModel.observeGeoData(this) {
             // todo remove log
-            Log.d("MyLog", "Error: $it")
+            Log.d("MyLog", "GeoData: $it")
         }
 
         viewModel.observeError(this) {
@@ -67,11 +75,6 @@ class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
         viewModel.observeProgress(this) {
             // todo remove log
             Log.d("MyLog", "Progress: $it")
-        }
-
-        viewModel.observeLocation(this) {
-            // todo remove log
-            Log.d("MyLog", "Location: $it")
         }
     }
 }

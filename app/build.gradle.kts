@@ -1,3 +1,10 @@
+import java.util.Properties
+
+val file: File = project.rootProject.file("local.properties")
+val localProperties = file.inputStream().bufferedReader().use {
+    Properties().apply { load(it) }
+}
+
 plugins {
     id(Plugins.Application.dependency)
     id(Plugins.Android.dependency)
@@ -14,8 +21,11 @@ android {
         targetSdk = Config.targetSdk
         versionCode = Config.versionCode
         versionName = Config.versionName
+        buildFeatures.buildConfig = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", "\"${localProperties.getProperty("API_KEY")}\"")
     }
 
     buildTypes {
@@ -36,9 +46,6 @@ android {
         jvmTarget = Config.jvmTarget
     }
     viewBinding.enable = true
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 ktlint {
@@ -58,7 +65,7 @@ dependencies {
     implementation(Dependencies.Android.constraintLayout)
     implementation(Dependencies.Android.material)
     implementation(Dependencies.Android.fragment)
-    implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation(Dependencies.Google.playServicesLocation)
     // Unit Testing
     testImplementation(Dependencies.UnitTesting.JUnit.core)
     testImplementation(Dependencies.UnitTesting.KotlinX.coroutines)
@@ -73,9 +80,10 @@ dependencies {
     implementation(Dependencies.Navigation.navigationUi)
     // Permissions
     implementation(Dependencies.PermissionX.core)
-    // Retrofit
-    implementation(Dependencies.Retrofit.core)
-    implementation(Dependencies.Retrofit.converter)
+    // Retrofit, i don't use here buildSrc, throw some error faced with retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
     // OkHttp
     implementation(Dependencies.OkHttp.core)
     // Splash Screen

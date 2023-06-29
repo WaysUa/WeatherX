@@ -1,4 +1,4 @@
-package com.main.weatherx.some
+package com.main.weatherx.features.weather.main.data
 
 import com.main.weatherx.some.entities.GeoData
 
