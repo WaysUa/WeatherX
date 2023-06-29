@@ -6,10 +6,7 @@ import com.main.weatherx.features.weather.main.data.entities.Coordinates
 import com.main.weatherx.main.presentation.communication.Communication
 import com.main.weatherx.some.entities.GeoData
 
-interface MainWeatherCommunication :
-    ObserveMainWeatherStates,
-    FetchCoordinates,
-    ValueCoordinates {
+interface MainWeatherCommunication : ObserveMainWeatherStates {
 
     fun mapGeoData(geoData: GeoData)
 
@@ -47,25 +44,7 @@ interface MainWeatherCommunication :
         override fun observeError(owner: LifecycleOwner, observer: Observer<String>) {
             errorCommunication.observe(owner, observer)
         }
-
-        override fun fetchCoordinates(coordinates: Coordinates) {
-            coordinatesCommunication.map(coordinates)
-        }
-
-        override fun valueCoordinates(): Coordinates {
-            return coordinatesCommunication.value() ?: throw IllegalStateException(
-                "MainWeatherCommunication: error"
-            )
-        }
     }
-}
-
-interface FetchCoordinates {
-    fun fetchCoordinates(coordinates: Coordinates)
-}
-
-interface ValueCoordinates {
-    fun valueCoordinates(): Coordinates
 }
 
 interface ObserveMainWeatherStates {

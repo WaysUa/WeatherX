@@ -34,8 +34,8 @@ class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
         override fun onLocationResult(locationResult: LocationResult) {
             val latestLocation = locationResult.lastLocation
             if (latestLocation != null) {
-                viewModel.fetchCoordinates(
-                    Coordinates(
+                viewModel.fetchGeoData(
+                    coordinates = Coordinates(
                         lat = latestLocation.latitude,
                         lon = latestLocation.longitude
                     )
@@ -52,7 +52,7 @@ class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
 
         permissionManager.permissions(
             Permission.Location.permission.toList()
-        ).request { allGranted, grantedList, deniedList ->
+        ).request { allGranted, _, _ ->
             if (allGranted) {
                 fusedLocationClient.requestLocationUpdates(
                     locationRequest,
