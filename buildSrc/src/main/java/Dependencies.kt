@@ -46,6 +46,10 @@ object Dependencies {
         const val core = "com.squareup.okhttp3:logging-interceptor:4.10.0"
     }
 
+    object SmoothBottomBar {
+        const val core = "com.github.ibrahimsn98:SmoothBottomBar:1.7.9"
+    }
+
     object UnitTesting {
         object JUnit {
             const val core = "junit:junit:4.13.2"

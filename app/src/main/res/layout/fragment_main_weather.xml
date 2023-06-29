@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.weather.main.presentation.ui.MainWeatherFragment"/>
+    android:background="@color/dark"
+    tools:context=".features.weather.main.presentation.ui.MainWeatherFragment">
+
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:contentDescription="@string/bottom_navigation_bar"
+        app:backgroundColor="@color/dark"
+        app:iconTint="@color/unchecked_item"
+        app:iconTintActive="@color/checked_item"
+        app:indicatorColor="@color/dark"
+        app:textColor="@color/checked_item"
+        app:iconMargin="4dp"
+        app:textSize="17sp"
+        app:iconSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/main_navigation_bar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

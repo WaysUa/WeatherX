@@ -2,4 +2,8 @@
     <string name="app_name">WeatherX</string>
     <string name="no_connection_message">No internet connection</string>
     <string name="service_is_unavailable">Service is unavailable</string>
+    <string name="bottom_navigation_bar">Bottom Navigation Bar</string>
+    <string name="favorites">Favorites</string>
+    <string name="main">Main</string>
+    <string name="settings">Settings</string>
 </resources>

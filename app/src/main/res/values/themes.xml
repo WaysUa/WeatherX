@@ -1,8 +1,7 @@
 <resources>
-    <!-- Base application theme. -->
     <style name="Base.Theme.WeatherX" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/dark</item>
+        <item name="android:navigationBarColor">@color/dark</item>
     </style>
 
     <style name="Theme.WeatherX" parent="Base.Theme.WeatherX" />
