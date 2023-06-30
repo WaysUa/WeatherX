@@ -32,6 +32,7 @@ class MainWeatherModule(
             geoResultMapper = GeoResultMapper(mainWeatherCommunication)
         )
         return MainGeoViewModel.Base(
+            navigationCommunication = core.provideNavigation(),
             communication = mainWeatherCommunication,
             getGeoDataFeature = getGeoDataFeature
         )

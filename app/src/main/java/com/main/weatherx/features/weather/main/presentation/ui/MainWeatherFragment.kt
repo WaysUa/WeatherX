@@ -62,6 +62,12 @@ class MainWeatherFragment : BaseFragment<MainGeoViewModel.Base>() {
             }
         }
 
+        binding.bottomAppBar.setOnItemSelectedListener {
+            viewModel.navigateToFavoritesLocationFragment()
+            // todo delete log
+            Log.d("MyLog", "setOnItemSelectedListener")
+        }
+
         viewModel.observeGeoData(this) {
             // todo remove log
             Log.d("MyLog", "GeoData: $it")
